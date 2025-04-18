@@ -5,3 +5,4 @@ pydantic
 ruamel.yaml
 scikit-learn
 strictyaml
+pylint
