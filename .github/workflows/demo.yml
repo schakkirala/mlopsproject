@@ -27,7 +27,7 @@ jobs:
           make all
     
       - name: Build the Docker image
-        run: docker build --file DockerfileOut -t titanic-app .
+        run: docker build --file Dockerfile -t titanic-app .
 
       - name: Push the Image
         run: docker run -d -p 80:8001 titanic-app
