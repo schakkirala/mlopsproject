@@ -2,7 +2,6 @@
 # This workflow installs Python deps and runs tests across versions
 
 name: Python app
-
 on:
   push:
     branches: ["main"]
