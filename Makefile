@@ -1,7 +1,7 @@
 #Makefile
 install: 
 	pip install --upgrade pip &&\
-	pip install -r requirements.txt
+	pip install -r requirements/requirements.txt
 format:
 	black *.py
 lint:
