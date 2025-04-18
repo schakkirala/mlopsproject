@@ -1,0 +1,18 @@
+include *.txt
+include *.md
+include *.pkl
+recursive-include ./titanic_model *
+
+include titanic_model/dataset/titanic.csv
+include titanic_model/dataset/test.csv
+include titanic_model/trained_model/*.pkl
+include titanic_model/VERSION
+include titanic_model/config.yml
+
+include ./requirements/requirements.txt
+include ./requirements/test_requirements.txt
+exclude *.log
+exclude *.cfg
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
