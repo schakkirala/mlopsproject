@@ -1,12 +1,14 @@
-#demo.yaml
+# .github/workflows/demo.yaml
+# This workflow installs Python deps and runs tests across versions
 
-#This workflow will install Python dependencies, run tests with diff python versions 
-name:  Python app 
+name: Python app
+
 on:
   push:
     branches: ["main"]
   pull_request:
     branches: ["main"]
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,21 +16,23 @@ jobs:
       fail-fast: false
       matrix: 
         python-version: ["3.8", "3.9", "3.10"]
+
     steps:
-    - uses: actions/checkout@v3
-    - name: Setup Python ${{ matrix.python-version}}
-    uses: actions/setup-python@v3
-    with:
-      python-version: ${{matrix.python-version}}
-    - name: Install dependencies
-      run: | 
-          make install
-    - name: Lint with pylint
-      run: |
-          make lint
-    - name: test with pytest
-      run: |
-          make test
-    - name: Format code with Black 
-      run: | 
-          make format
+      - uses: actions/checkout@v3
+
+      - name: Setup Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: make install
+
+      - name: Lint with pylint
+        run: make lint
+
+      - name: Test with pytest
+        run: make test
+
+      - name: Format code with Black
+        run: make format
